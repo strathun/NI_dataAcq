@@ -1,3 +1,9 @@
+%% datAqTotal.m 
+% Connects to NI DAQ device and records time domain data for specified data
+% rate and duration. Graphs data with significant delay.
+% This is the initial script in this suite. Will run datAcqLive.m which runs
+% writeData.m
+
 %scans for connected devices. 
 devices = daq.getDevices;
 s = daq.createSession('ni');

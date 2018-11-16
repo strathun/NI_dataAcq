@@ -13,8 +13,8 @@ s = daq.createSession('ni');
 addAnalogInputChannel(s,'cDAQ1Mod1',0,'Voltage');
 
 %Sampling rate/duration
-s.Rate = 200000;
-s.DurationInSeconds = 10;
+s.Rate = 1e6;
+s.DurationInSeconds = 5;
 
 lh = addlistener(s,'DataAvailable', @(src,event) plot(event.TimeStamps, event.Data));
 llh = addlistener(s,'DataAvailable', @writeDatafun);

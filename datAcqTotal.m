@@ -4,16 +4,16 @@
 % This is the initial script in this suite. Will run datAcqLive.m which runs
 % writeData.m
 
-%scans for connected devices. 
-devices = daq.getDevices;
-s = daq.createSession('ni');
-
-%Creates a channel for Voltage recording. Get device name from list above
-addAnalogInputChannel(s,'cDAQ1Mod1',0,'Voltage');
-
-%Sampling rate/duration
-s.Rate = 2000;
-s.DurationInSeconds = 30;
+% %scans for connected devices. 
+% devices = daq.getDevices;
+% s = daq.createSession('ni');
+% 
+% %Creates a channel for Voltage recording. Get device name from list above
+% addAnalogInputChannel(s,'cDAQ1Mod1',0,'Voltage');
+% 
+% %Sampling rate/duration
+% s.Rate = 2000;
+% s.DurationInSeconds = 30;
 
 % L = (s.Rate)*(s.DurationInSeconds);
 

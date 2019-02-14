@@ -1,11 +1,11 @@
-function writeDatafun(src,event)
-%UNTITLED5 Summary of this function goes here
-%   Detailed explanation goes here
-%   Update this function to generate new filename.
+function writeDatafun(src,event,fileName)
+%writeDatafun(src,event)
+%   takes event and writes data to txt file
 
 A = [event.Data];
 
-fileID = fopen('data.txt', 'a');
+% Appends most recent data to previously generated text file
+fileID = fopen(fileName, 'a');
 fprintf(fileID,'%5d\r\n',A);
 fclose(fileID);
 

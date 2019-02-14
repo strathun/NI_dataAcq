@@ -33,7 +33,7 @@ s.DurationInSeconds = sampleDur;
 % Uses two listeners. One that plots data to give a rough live stream of
 % data, and one that writies data to txt file in small chunks. 
 lh = addlistener(s,'DataAvailable', @(src,event) plot(event.TimeStamps, event.Data));
-llh = addlistener(s,'DataAvailable', @writeDatafun);
+llh = addlistener(s,'DataAvailable', @(src,event)obj.writeDatafun(src,event,fileName));
 
 s.NotifyWhenDataAvailableExceeds = sampleRate * frameSize;
 s.startBackground();

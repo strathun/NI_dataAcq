@@ -4,21 +4,26 @@
 % This is the initial script in this suite. Calls writeDatafun.m
 % datAcqLive should not be used... I don't think...
 % Hardware required:
-%   Noise headstage? 
-%   Noise daughterboard?
+%   Noise headstage
+%   Noise daughterboard
 clear
 close all
 %__________________User_Defined_Parameters________________________________%
 sampleRate = 20e3;      % sets sampling rate
 sampleDur  = 01.00;    % sets sampling duration (s)
 frameSize  = 00.1;    % time in (s) per plot in live view
-saveFileNote  = 'atInput_2Hz';  % String for filename
+saveFileNote  = 'HS_atInput_3kHz_4mVpp';  % String for filename
 %_________________________________________________________________________%
 
 datestamp = datestr(date,29);
 C = clock;
 timestamp = sprintf('%02dhr_%02dmin_%02.0fsec',C(4),C(5),C(6));
-fileName = sprintf('%s_%s_%s',datestamp,timestamp,saveFileNote);
+sampleInfo = sprintf('%0.3gkSs_%02ds', sampleRate, sampleDur );
+fileName = sprintf('%s_%s_%s_%s',...
+                   datestamp, ...
+                   timestamp, ...
+                   sampleInfo, ...
+                   saveFileNote);
 
 fileID = fopen(fileName, 'w');
 fprintf(fileID,'%5d\r\n','data');

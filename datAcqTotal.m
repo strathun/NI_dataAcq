@@ -26,7 +26,7 @@ fileName = sprintf('%s_%s_%s_%s',...
                    saveFileNote);
 
 fileID = fopen(fileName, 'w');
-fprintf(fileID,'%5d\r\n','data');
+fprintf(fileID,'%5d\r\n');
 fclose(fileID);
 
 %scans for connected devices. 
